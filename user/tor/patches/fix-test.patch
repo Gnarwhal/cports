@@ -1,0 +1,23 @@
+diff --color -ruN tor-0.4.8.16/scripts/maint/practracker/testdata/ex0-expected.txt tor-0.4.8.16-patched/scripts/maint/practracker/testdata/ex0-expected.txt
+--- tor-0.4.8.16/scripts/maint/practracker/testdata/ex0-expected.txt	2025-03-24 15:23:12.000000000 +0000
++++ tor-0.4.8.16-patched/scripts/maint/practracker/testdata/ex0-expected.txt	2025-04-23 03:46:44.796422262 +0000
+@@ -1,8 +1,8 @@
+-Unusual pattern permitted.h in scripts/maint/practracker/testdata
+ problem file-size a.c 41
+ problem include-count a.c 6
+ problem function-size a.c:i_am_a_function() 9
+ problem function-size a.c:another_function() 12
++Unusual pattern permitted.h in scripts/maint/practracker/testdata
+ problem dependency-violation a.c 4
+ problem file-size b.c 15
+ problem function-size b.c:foo() 4
+diff --color -ruN tor-0.4.8.16/scripts/maint/practracker/testdata/ex1-expected.txt tor-0.4.8.16-patched/scripts/maint/practracker/testdata/ex1-expected.txt
+--- tor-0.4.8.16/scripts/maint/practracker/testdata/ex1-expected.txt	2025-03-24 15:23:12.000000000 +0000
++++ tor-0.4.8.16-patched/scripts/maint/practracker/testdata/ex1-expected.txt	2025-04-23 03:47:47.688341466 +0000
+@@ -1,5 +1,5 @@
+-Unusual pattern permitted.h in scripts/maint/practracker/testdata
+ problem function-size a.c:i_am_a_function() 9
+ (warning) problem function-size a.c:another_function() 12
++Unusual pattern permitted.h in scripts/maint/practracker/testdata
+ problem function-size b.c:foo() 4
+ practracker exit status: 2
