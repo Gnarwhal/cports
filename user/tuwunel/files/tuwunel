@@ -1,0 +1,6 @@
+type = process
+command = /usr/bin/tuwunel -c /etc/tuwunel/config.toml
+logfile = /var/log/tuwunel.log
+run-as = _tuwunel
+depends-on: local.target
+depends-on: network.target
