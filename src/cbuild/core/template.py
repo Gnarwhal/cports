@@ -640,6 +640,10 @@ class AstValidatorVisitor(ast.NodeVisitor):
         if not isinstance(node, ast.Assign):
             ast.NodeVisitor.generic_visit(self, node)
             return
+        # skip assignment to non-name nodes
+        if not isinstance(node, ast.Name):
+            ast.NodeVisitor.generic_visit(self, node)
+            return
         # skip not-dependencies
         lname = node.targets[0].id
         if lname not in [
