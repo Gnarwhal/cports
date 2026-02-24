@@ -1,0 +1,12 @@
+diff --color -ruN libolm-3.2.16/include/olm/list.hh libolm-3.2.16-patched/include/olm/list.hh
+--- libolm-3.2.16/include/olm/list.hh	2023-11-23 17:38:51.000000000 +0000
++++ libolm-3.2.16-patched/include/olm/list.hh	2026-02-23 07:20:44.806756930 +0000
+@@ -99,7 +99,7 @@
+             return *this;
+         }
+         T * this_pos = _data;
+-        T * const other_pos = other._data;
++        T const * other_pos = other._data;
+         while (other_pos != other._end) {
+             *this_pos = *other;
+             ++this_pos;
