@@ -1,0 +1,9 @@
+diff --color -ruN libolm-3.2.16/CMakeLists.txt libolm-3.2.16-patched/CMakeLists.txt
+--- libolm-3.2.16/CMakeLists.txt	2023-11-23 17:38:51.000000000 +0000
++++ libolm-3.2.16-patched/CMakeLists.txt	2026-02-23 07:17:26.085730214 +0000
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.4)
++cmake_minimum_required(VERSION 4.1.2)
+ 
+ project(olm VERSION 3.2.16 LANGUAGES CXX C)
+ 
