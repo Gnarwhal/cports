@@ -1,0 +1,6 @@
+type = process
+command = /usr/bin/git-pages -config /etc/git-pages/config.toml
+logfile = /var/log/git-pages.log
+run-as = _git-pages
+depends-on: local.target
+depends-on: network.target
