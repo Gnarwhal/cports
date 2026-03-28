@@ -2,6 +2,7 @@ pkgname = "caddy"
 pkgver = "2.11.4"
 pkgrel = 0
 build_style = "go"
+prepare_after_patch = True
 make_build_args = [
     f"-ldflags=-X github.com/caddyserver/caddy/v2.CustomVersion=v{pkgver}",
     "./cmd/caddy",
@@ -17,6 +18,10 @@ source = f"https://github.com/caddyserver/caddy/archive/v{pkgver}.tar.gz"
 sha256 = "2c3d02078286a6282cdb4d1d8744077788d556659dac0b64d8ed5886a7e5aeb9"
 # generates completions with host binary
 options = ["!cross"]
+
+
+def prepare(self):
+    self.do("go", "mod", "tidy", allow_network=True)
 
 
 def post_build(self):
