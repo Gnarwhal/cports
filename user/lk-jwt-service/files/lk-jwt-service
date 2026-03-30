@@ -1,0 +1,8 @@
+type = process
+command = /usr/bin/lk-jwt-service
+env-file = /etc/lk-jwt-service/config.env
+logfile = /var/log/lk-jwt-service.log
+run-as = _lk-jwt-service
+depends-on: local.target
+depends-on: network.target
+
