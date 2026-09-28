@@ -1,6 +1,6 @@
 pkgname = "tuwunel"
-pkgver = "1.9.2"
-pkgrel = 1
+pkgver = "1.9.3"
+pkgrel = 0
 build_wrksrc = "./src/main"
 build_style = "cargo"
 make_install_args = ["--frozen"]
