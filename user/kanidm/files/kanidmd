@@ -1,0 +1,7 @@
+type = process
+command = /usr/bin/kanidmd server -c /etc/kanidm/server.toml
+working-dir = /var/lib/kanidmd
+logfile = /var/log/kanidmd.log
+run-as = _kanidm
+depends-on: network.target
+depends-on: local.target
