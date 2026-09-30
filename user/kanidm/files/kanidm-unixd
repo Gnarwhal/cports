@@ -1,0 +1,7 @@
+type = process
+command = /usr/bin/kanidm_unixd
+working-dir = /var/lib/kanidm-unixd
+logfile = /var/log/kanidm-unixd.log
+run-as = _kanidm
+depends-on: network.target
+depends-on: local.target
