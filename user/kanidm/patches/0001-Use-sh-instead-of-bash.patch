@@ -1,0 +1,22 @@
+From b4a166d995d3c0d9ed30c3e129541302d3410296 Mon Sep 17 00:00:00 2001
+From: Gnarwhal <git.aspect893@passmail.net>
+Date: Sat, 26 Sep 2026 22:22:00 +0000
+Subject: [PATCH] Use `sh` instead of `bash`
+
+---
+ libs/profiles/release_linux.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libs/profiles/release_linux.toml b/libs/profiles/release_linux.toml
+index c350282f4..a1d89494b 100644
+--- a/libs/profiles/release_linux.toml
++++ b/libs/profiles/release_linux.toml
+@@ -7,4 +7,4 @@ server_migration_path = "/etc/kanidm/migrations.d"
+ client_config_path = "/etc/kanidm/config"
+ resolver_config_path = "/etc/kanidm/unixd"
+ resolver_service_account_token_path = "/etc/kanidm/token"
+-resolver_unix_shell_path = "/bin/bash"
++resolver_unix_shell_path = "/bin/sh"
+-- 
+2.55.0
+
