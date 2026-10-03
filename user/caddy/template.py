@@ -1,6 +1,6 @@
 pkgname = "caddy"
-pkgver = "2.11.4"
-pkgrel = 2
+pkgver = "2.11.6"
+pkgrel = 0
 build_style = "go"
 make_build_args = [
     f"-ldflags=-X github.com/caddyserver/caddy/v2.CustomVersion=v{pkgver}",
@@ -14,7 +14,7 @@ pkgdesc = "Extensible HTTP server with automatic HTTPS"
 license = "Apache-2.0"
 url = "https://caddyserver.com"
 source = f"https://github.com/caddyserver/caddy/archive/v{pkgver}.tar.gz"
-sha256 = "2c3d02078286a6282cdb4d1d8744077788d556659dac0b64d8ed5886a7e5aeb9"
+sha256 = "cb65c6d2081e2700f44e03d808a0330344b483688934c87e53ba7b5728a3a04b"
 # generates completions with host binary
 options = ["!cross"]
 
