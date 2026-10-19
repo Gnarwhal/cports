@@ -1,5 +1,5 @@
 pkgname = "openvpn"
-pkgver = "2.7.7"
+pkgver = "2.7.8"
 pkgrel = 0
 build_style = "gnu_configure"
 configure_args = [
@@ -36,7 +36,7 @@ url = "https://openvpn.net"
 source = (
     f"https://github.com/OpenVPN/openvpn/archive/refs/tags/v{pkgver}.tar.gz"
 )
-sha256 = "b56dd6c4e8b38ce43e6f4a901435a41b0b646bd90ec050b38ea2ee5e94e81bde"
+sha256 = "daf18f81040137fc4d3d843088954ae68f6c86c10d3860114078b9c256a3516f"
 options = ["etcfiles"]
 
 
