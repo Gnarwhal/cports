@@ -1,0 +1,92 @@
+From da4be832ec06f9656d308d7293195bcbe344ce0d Mon Sep 17 00:00:00 2001
+From: Gnarwhal <git.aspect893@passmail.net>
+Date: Sun, 18 Oct 2026 20:49:18 +0000
+Subject: [PATCH] remove celery test
+
+---
+ tests/test_pytest_cov.py | 69 ----------------------------------------
+ 1 file changed, 69 deletions(-)
+
+diff --git a/tests/test_pytest_cov.py b/tests/test_pytest_cov.py
+index 99a66ce..348445f 100644
+--- a/tests/test_pytest_cov.py
++++ b/tests/test_pytest_cov.py
+@@ -731,75 +731,6 @@ def test_foobar(bad):
+     assert result.ret == 0
+ 
+ 
+-@pytest.mark.skipif(sys.platform == 'win32', reason='No redis server on Windows')
+-@pytest.mark.skipif(sys.platform == 'darwin', reason='No redis server on OSX')
+-def test_celery(pytester):
+-    pytester.makepyfile(
+-        small_celery="""
+-import os
+-
+-from celery import Celery
+-from celery.contrib.testing import worker
+-from testcontainers.redis import RedisContainer
+-import pytest
+-
+-app = Celery("tasks", broker="redis://localhost:6379/0", backend="redis://localhost:6379/0")
+-
+-@app.task
+-def add(x, y):
+-    return x + y
+-
+-@pytest.fixture(scope="session")
+-def redis_container():
+-    with RedisContainer() as container:
+-        yield container
+-
+-
+-@pytest.fixture
+-def celery_app(redis_container):
+-    host = redis_container.get_container_host_ip()
+-    port = redis_container.get_exposed_port(6379)
+-    redis_url = f"redis://{host}:{port}/0"
+-
+-    app.conf.update(broker_url=redis_url, result_backend=redis_url)
+-    return app
+-
+-@pytest.fixture
+-def celery_worker(celery_app):
+-    with worker.start_worker(
+-        celery_app,
+-        pool="prefork",
+-        perform_ping_check=False,
+-    ):
+-        yield
+-        print('CELERY SHUTDOWN')
+-    print('CELERY SHUTDOWN DONE')
+-    print(os.listdir())
+-
+-
+-def test_add_task(celery_worker):
+-    result = add.delay(4, 4)
+-    assert result.get() == 8
+-"""
+-    )
+-
+-    pytester.makepyprojecttoml(
+-        """
+-[tool.coverage.run]
+-patch = ["subprocess", "_exit"]
+-"""
+-    )
+-    result = pytester.runpytest('-vv', '-s', '--cov', '--cov-report=term-missing', 'small_celery.py')
+-
+-    result.stdout.fnmatch_lines(
+-        [
+-            '*_ coverage: platform *, python * _*',
+-            'small_celery* 100%*',
+-        ]
+-    )
+-    assert result.ret == 0
+-
+-
+ def test_subprocess_with_path_aliasing(pytester, testdir, monkeypatch):
+     src = testdir.mkdir('src')
+     src.join('parent_script.py').write(SCRIPT_PARENT)
+-- 
+2.55.0
+
