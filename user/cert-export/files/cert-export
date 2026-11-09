@@ -1,0 +1,4 @@
+type = process
+command = /usr/bin/cert-export daemon
+logfile = /var/log/cert-export.log
+depends-on: local.target
