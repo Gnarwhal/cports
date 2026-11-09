@@ -1,0 +1,4 @@
+type = process
+command = /usr/bin/diodemail
+logfile = /var/log/diodemail.log
+depends-on: local.target
